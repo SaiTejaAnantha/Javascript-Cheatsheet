@@ -1,9 +1,9 @@
 console.log('everything here is javascript');
 
 var random_variable;
-// The default value of the variable we declare is 'undefined', the value will be changed/updated after the initialization with a value
+// The default value of the variable we declare is 'undefined', the value will be changed/updated after the initializatin with a value
 console.log(random_variable); // 'undefined' will be printed
-// If we declare a variable and don't initialize, the default value of the variable will be undefined
+// If we declare a variable and don't initiailze, the default value of the variable will be undefined
 
 /************************ Javascript Basic Syntax **************************/ 
 
@@ -134,10 +134,14 @@ console.log(square(2));// calculates and prints square of 2
 
 // How JS works
 // Hoisting
+// Promises
 // Scope
 // Closures
 // callback function
 // event loop
+// JS Methods(array methods, string methods, object methods)
+// JS events
+// ES6
 // async JS
 
 /*
@@ -370,3 +374,102 @@ r();
 // Arrow Functions - let,const and Arrow functions are introduced from ES6
 
 // What is a callback function in JS
+// the function which we pass as an argument to another function is called a callback function
+
+setTimeout(function (){
+    console.log("timer");
+}, 7000);
+ 
+// blocking the main thread
+// power of callbacks?
+// deep about eventlisteners
+//closures demo with event listeners
+// scope demo with even listeners
+// garabage collectsions and removeEventListeners
+
+
+
+/* function attachEventListeners()
+{
+    let count = 0;
+    document.getElementById("clickMe", count++).addEventListener("click", function xyz(){
+    console.log("Button is clicked"); // after clicking button in the browswer, button is clicked will pop up and will count how many times you clicked the button
+});
+
+}
+attachEventListeners(); */
+ 
+// garbage collection and remove event listeners
+// why we do that, event listeners are heavy, that is they takes memory, we remove event listeners when we don't use them, page will take time  to load if we use so many even listeners
+
+/*
+ // call stack is insdide the JS engine
+ // JS engine is inside the browser
+
+ // browser can make connections to the server and display the data from the server
+ // there is timer in browswer
+
+*/
+
+/* Web APIs 
+// Browser kind of wraps up all the super power APIs below into a global object(window) and gives access of the window to the call stack/JS engine
+setTimeout() 
+DOM APIs
+fetch()
+localStorage
+console
+location
+*/
+
+// fetch() - basically goes and requests a API call from the API's url
+// fetch("https://api.netflix.com") (this will be studied more and updated)
+
+console.log("start");
+setTimeout(function cb() {
+    console.log("callback");
+}, 7000);
+console.log("end");
+// the above code basically is using 2 APIs, 
+// those are console, setTimeout()/timer
+
+/* Event Loop and Callback Queue
+The event loop checks whethere there is something in callback queue or not and if there is something
+it pushes that to the callstack, the event loops runs until the callback queue is empty
+// Basically it is the loop of Stack -> Web APIs (SetTimeOut() in above example) -> Event Queue(callback queue) - this cycle is called event loop
+*/
+
+// JS Engine
+// JS runtime environment is like a big container which contains all the things required to run JS program
+// JS runtime environment can contains - JS Engine + APIs + event loop + callback queue + microtask queue + lot of others ( different runtime environments have different of these)
+// this runtime environment is not possible without JS engine, JS engine is the heart of JS runtime environment
+// Node.js is also JS runtime environment, it can run outside the browser, that is node.js allows js program to run on the server instead of browser
+
+// There are a lot of JS Engines, V8 Engine is used in google chrome browswer, there are different JSengines for different browswers
+// google V8 engine is written inside c++
+// At presenet google's V8 Engine is fastest JS engine across all the browser
+// know more about google v8 engine and update here
+
+// JS Engine Architecture
+// code/program -> Parsing -> Compilation -> Execution
+// during parsing phase, code is broken down into tokens
+// syntax parser, which converts code into AST(Abstract Syntax Tree)
+// JS can behave as an interpreted lanuage as well as compiled language
+// compilation phase, JIT compilation(just in time compilation)
+// execution phase has 2 componenets - memory heap and call stack 
+// garbage collector mark&sweep algorithm(read about this and update here)
+
+// Trust issues with setTimeout() - it might take more time to run than we set, if we set 7000ms, it might take more
+// why? and know about setTimeout(0) update all about these concepts here
+
+// Functional Programming
+// Higher order functions
+
+function a() {
+    console.log("hello functionA");
+}
+function b(a) {
+    a();
+}
+// In this example b is the higher order function, a is the callback function
+// study about the functionall programming from akshay saini js vidoes and update here
+// map, filer, reduce are highorder function in JS, complete akshay saini last video about this and update here
